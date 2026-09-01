@@ -27,6 +27,22 @@ The long-term WÁLÉ experience is organised around:
 - **Live** — extended stays, retirement, relocation and future opportunities
 - **Build** — future business, investment and partnership opportunities
 
+## Phase Two — Member Experience Foundation
+
+Phase Two introduces the first member-facing application experience through **My WÁLÉ**.
+
+- Personal member overview and WÁLÉ path
+- First Return status
+- Saved places
+- Community group discovery
+- Member interests
+- Profile fields
+- Responsive member dashboard
+
+The Phase Two preview deliberately uses browser `localStorage` only. It does **not** provide production authentication or server-side account storage. A real identity and data service will be introduced as the next infrastructure step.
+
+See [`PHASE_TWO.md`](PHASE_TWO.md) for the detailed scope and persistence boundary.
+
 ### First Return
 
 The initial physical activation is being shaped around **Abeokuta, Nigeria**, the **Lisabi Festival** and **Olumo Rock** in March 2027.
@@ -49,10 +65,7 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-### Asset
+### Assets
 
-The supplied `WALE LOGO.png` is retained as the primary brand asset and is used directly by the landing page.
-
-### Next phase
-
-Phase Two can introduce the application layer: authentication, member profiles, saved destinations, community groups, events and a real founding-member data store.
+- `WALE LOGO.png` — primary brand asset
+- `favi.png` — browser favicon / Apple touch icon
