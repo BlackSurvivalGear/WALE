@@ -28,21 +28,12 @@ const WaleMember = (() => {
     state.saved = state.saved.includes(place) ? state.saved.filter(item => item !== place) : [...state.saved, place];
     save(); count(); renderSaved();
   }));
-  const profileForm = document.querySelector('#profile-form');
-  if (profileForm) {
-    const name = document.querySelector('#profile-name');
-    const location = document.querySelector('#profile-location');
-    const goal = document.querySelector('#profile-goal');
-    name.value = state.profile.name || '';
-    location.value = state.profile.location || '';
-    goal.value = state.profile.goal || goal.options[0].value;
-    profileForm.addEventListener('submit', event => {
-      event.preventDefault();
-      state.profile = { name: name.value.trim(), location: location.value.trim(), goal: goal.value };
-      save();
-      document.querySelector('#profile-success').hidden = false;
-    });
-  }
+
+  // Profile data is owned by Firebase/Firestore through member-auth.js.
+  // Do not read or write profile fields from the shared preview localStorage
+  // key, otherwise different authenticated accounts in the same browser can
+  // inherit one another's profile data.
+
   count(); renderSaved();
 })();
 
