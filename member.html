@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080706">
+  <meta name="description" content="My WÁLÉ — your personal place to discover, connect and plan your return home.">
+  <title>My WÁLÉ — Find Your Way Home</title>
+  <link rel="icon" type="image/png" href="favi.png">
+  <link rel="apple-touch-icon" href="favi.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="phase-two.css">
+</head>
+<body class="member-page">
+  <header class="member-header">
+    <a class="member-brand" href="index.html" aria-label="WÁLÉ home"><span class="member-mark">W</span><span>WÁLÉ</span></a>
+    <div class="member-header-actions"><span class="member-status">FOUNDING MEMBER PREVIEW</span><a href="index.html">Exit</a></div>
+  </header>
+
+  <main class="member-shell">
+    <aside class="member-sidebar" aria-label="Member navigation">
+      <div class="member-welcome"><span class="section-kicker">My WÁLÉ</span><h1>Welcome<br><em>home.</em></h1><p>Your personal place to plan your relationship with Africa.</p></div>
+      <nav class="member-nav">
+        <button class="member-nav-item active" data-view="overview">Overview</button>
+        <button class="member-nav-item" data-view="journey">My journey</button>
+        <button class="member-nav-item" data-view="saved">Saved places</button>
+        <button class="member-nav-item" data-view="community">Community</button>
+        <button class="member-nav-item" data-view="profile">My profile</button>
+      </nav>
+      <div class="member-sidebar-note"><span>THE FIRST RETURN</span><strong>Abeokuta · March 2027</strong><a href="return.html">Explore ↗</a></div>
+    </aside>
+
+    <section class="member-content" aria-live="polite">
+      <div class="member-view active" id="view-overview">
+        <div class="member-topline"><div><span class="section-kicker">01 / Overview</span><h2>Your WÁLÉ path.</h2></div><span class="demo-chip">Local preview</span></div>
+        <div class="member-stats"><div><span>Saved places</span><strong id="saved-count">3</strong></div><div><span>Return interest</span><strong>1</strong></div><div><span>Community groups</span><strong>4</strong></div></div>
+        <div class="member-grid two-col">
+          <article class="member-card featured-card"><span class="card-label">NEXT STEP</span><h3>The First Return</h3><p>Abeokuta, Nigeria · March 2027</p><div class="progress"><span></span></div><small>Interest registered · programme coming soon</small><a href="return.html">View Return →</a></article>
+          <article class="member-card"><span class="card-label">YOUR INTERESTS</span><h3>What brings you home?</h3><div class="interest-tags"><button data-interest="Heritage">Heritage</button><button data-interest="Culture">Culture</button><button data-interest="Retirement">Retirement</button><button data-interest="Business">Business</button></div><small>Select interests to personalise your future WÁLÉ experience.</small></article>
+        </div>
+        <div class="member-section-head"><div><span class="section-kicker">Discover</span><h3>Places worth knowing.</h3></div><button class="text-button" data-view-target="saved">View saved →</button></div>
+        <div class="place-row"><button class="place-card saved-place" data-place="Abeokuta"><span>NIGERIA</span><strong>Abeokuta</strong><small>Heritage · Culture</small></button><button class="place-card saved-place" data-place="Lagos"><span>NIGERIA</span><strong>Lagos</strong><small>Culture · Living</small></button><button class="place-card saved-place" data-place="Accra"><span>GHANA</span><strong>Accra</strong><small>History · Community</small></button></div>
+      </div>
+
+      <div class="member-view" id="view-journey"><div class="member-topline"><div><span class="section-kicker">02 / My journey</span><h2>Build your return.</h2></div></div><div class="journey-path"><div class="journey-step current"><span>01</span><div><b>Discover</b><p>Choose the places, cultures and histories you want to know.</p></div></div><div class="journey-line"></div><div class="journey-step"><span>02</span><div><b>Connect</b><p>Find community members with similar interests and questions.</p></div></div><div class="journey-line"></div><div class="journey-step"><span>03</span><div><b>Return</b><p>Join a WÁLÉ Return and experience Africa with context.</p></div></div><div class="journey-line"></div><div class="journey-step"><span>04</span><div><b>Live</b><p>Explore longer stays, retirement, relocation and possibility.</p></div></div></div></div>
+
+      <div class="member-view" id="view-saved"><div class="member-topline"><div><span class="section-kicker">03 / Saved places</span><h2>Your places.</h2></div></div><div class="saved-grid"><article class="saved-card"><span>NIGERIA</span><h3>Abeokuta</h3><p>Ogun State · Heritage · Olumo Rock</p><button data-remove="Abeokuta">Remove from saved</button></article><article class="saved-card"><span>NIGERIA</span><h3>Lagos</h3><p>Lagos State · Culture · Living</p><button data-remove="Lagos">Remove from saved</button></article><article class="saved-card"><span>GHANA</span><h3>Accra</h3><p>Greater Accra · History · Community</p><button data-remove="Accra">Remove from saved</button></article></div><p class="member-note">Saved places are stored only in this browser during the Phase Two preview. Account-backed persistence comes with the live data service.</p></div>
+
+      <div class="member-view" id="view-community"><div class="member-topline"><div><span class="section-kicker">04 / Community</span><h2>Your people.</h2></div></div><div class="group-grid"><article><span>01</span><h3>Heritage & identity</h3><p>Explore ancestry, family history, culture and identity.</p><button>Explore group</button></article><article><span>02</span><h3>First time in Africa</h3><p>Ask questions and learn from people who have made the journey.</p><button>Explore group</button></article><article><span>03</span><h3>Retire & relocate</h3><p>Practical conversations about spending more time in Africa.</p><button>Explore group</button></article><article><span>04</span><h3>Diaspora builders</h3><p>Business, investment, partnerships and creative opportunity.</p><button>Explore group</button></article></div></div>
+
+      <div class="member-view" id="view-profile"><div class="member-topline"><div><span class="section-kicker">05 / My profile</span><h2>Tell WÁLÉ<br><em>what brings you.</em></h2></div></div><form class="profile-form" id="profile-form"><label for="profile-name">Name</label><input id="profile-name" name="name" placeholder="Your name" autocomplete="name"><label for="profile-location">Where do you live?</label><input id="profile-location" name="location" placeholder="City, country" autocomplete="country-name"><label for="profile-goal">What is your main WÁLÉ goal?</label><select id="profile-goal"><option>Discover Africa</option><option>Reconnect with heritage</option><option>Experience cultural Returns</option><option>Retire or relocate</option><option>Build or invest</option></select><button class="button button-primary" type="submit">Save profile <span>→</span></button><p class="form-success" id="profile-success" hidden>Profile saved in this browser preview.</p></form><p class="member-note">This preview deliberately uses browser storage only. Authentication and secure account storage are the next infrastructure step.</p></div>
+    </section>
+  </main>
+  <script src="phase-two.js"></script>
+</body>
+</html>
