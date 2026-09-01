@@ -45,3 +45,7 @@ const WaleMember = (() => {
   }
   count(); renderSaved();
 })();
+
+// Phase Three authentication is loaded separately so the existing preview
+// interactions remain intact while authenticated persistence is introduced.
+import('./member-auth.js').catch(() => {});
