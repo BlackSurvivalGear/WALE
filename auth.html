@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080706"><title>Join WÁLÉ — Find Your Way Home</title>
+<link rel="icon" type="image/png" href="favi.png"><link rel="apple-touch-icon" href="favi.png">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="phase-one.css"><link rel="stylesheet" href="phase-three.css">
+</head>
+<body class="auth-page">
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">W</span><span class="brand-name">WÁLÉ</span></a><a class="header-cta" href="index.html">Home <span>↗</span></a></header>
+<main class="auth-shell">
+<section class="auth-intro"><span class="section-kicker">MY WÁLÉ</span><h1>Find your<br><em>way home.</em></h1><p>Create your WÁLÉ account and begin building your personal path to Africa.</p><div class="auth-pillars"><span>Discover</span><span>Connect</span><span>Return</span><span>Live</span></div></section>
+<section class="auth-card" aria-label="WÁLÉ account access">
+<div class="auth-tabs"><button class="auth-tab active" data-mode="signup">Create account</button><button class="auth-tab" data-mode="login">Sign in</button></div>
+<form id="auth-form"><div class="field name-field"><label for="auth-name">Name</label><input id="auth-name" type="text" autocomplete="name" placeholder="Your name"></div><div class="field"><label for="auth-email">Email</label><input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com"></div><div class="field"><label for="auth-password">Password</label><input id="auth-password" type="password" autocomplete="new-password" minlength="6" required placeholder="At least 6 characters"></div><button class="button button-primary auth-submit" type="submit">Create my WÁLÉ account <span>→</span></button></form>
+<div class="auth-divider"><span>or</span></div><button class="button auth-google" id="google-auth" type="button"><span class="google-mark">G</span> Continue with Google</button>
+<p class="auth-message" id="auth-message" role="alert"></p><p class="auth-footnote">By joining WÁLÉ you become part of a community built around discovery, reconnection and meaningful return.</p>
+</section></main>
+<script type="module">
+import { registerWithEmail, loginWithEmail, loginWithGoogle } from './firebase-auth.js';
+const form=document.querySelector('#auth-form'), nameField=document.querySelector('.name-field'), submit=document.querySelector('.auth-submit'), message=document.querySelector('#auth-message');
+let mode='signup';
+function setMode(next){mode=next;document.querySelectorAll('.auth-tab').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));nameField.hidden=mode==='login';document.querySelector('#auth-password').autocomplete=mode==='login'?'current-password':'new-password';submit.innerHTML=mode==='login'?'Sign in to My WÁLÉ <span>→</span>':'Create my WÁLÉ account <span>→</span>';message.textContent='';}
+document.querySelectorAll('.auth-tab').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.mode)));
+form.addEventListener('submit',async e=>{e.preventDefault();message.textContent='';submit.disabled=true;try{const email=document.querySelector('#auth-email').value.trim(),password=document.querySelector('#auth-password').value; if(mode==='signup'){await registerWithEmail(document.querySelector('#auth-name').value,email,password)}else{await loginWithEmail(email,password)} window.location.href='member.html';}catch(error){message.textContent=error.code==='auth/email-already-in-use'?'An account already exists with this email. Try Sign in.':error.code==='auth/invalid-credential'?'Email or password is incorrect.':error.message.replace('Firebase: ','')}finally{submit.disabled=false;}});
+document.querySelector('#google-auth').addEventListener('click',async()=>{message.textContent='';try{await loginWithGoogle();window.location.href='member.html';}catch(error){message.textContent=error.message.replace('Firebase: ','');}});
+</script></body></html>

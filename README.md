@@ -14,7 +14,7 @@ Phase One turns the original brand landing page into a small, connected public p
 - **Discover** — destination discovery with Nigeria as the launch country
 - **Connect** — founding-community concept and preview of the future member experience
 - **Return** — The First Return: Abeokuta, Lisabi Festival and Olumo Rock, March 2027
-- **Join** — founding-community interest form (prototype only; no submissions are persisted yet)
+- **Join** — founding-community entry point
 - **About** — mission and operating principles
 
 ### Platform direction
@@ -39,9 +39,31 @@ Phase Two introduces the first member-facing application experience through **My
 - Profile fields
 - Responsive member dashboard
 
-The Phase Two preview deliberately uses browser `localStorage` only. It does **not** provide production authentication or server-side account storage. A real identity and data service will be introduced as the next infrastructure step.
+The Phase Two preview originally used browser `localStorage` only. Phase Three begins replacing that temporary boundary with authenticated account storage.
 
-See [`PHASE_TWO.md`](PHASE_TWO.md) for the detailed scope and persistence boundary.
+## Phase Three — Authentication Foundation
+
+Phase Three connects WÁLÉ to the dedicated Firebase project `wale-5bbdd` while keeping GitHub Pages as the production web host.
+
+- Firebase Web SDK loaded directly from Google's CDN
+- Email/password registration and sign-in
+- Google sign-in
+- Protected My WÁLÉ access
+- Firestore-backed `users/{uid}` member profiles
+- Firestore security rules source in `firestore.rules`
+- Join flow connected to real account creation
+- Existing Phase Two member interactions retained during migration
+
+### Firebase deployment requirements
+
+Before releasing authenticated membership to production:
+
+1. Add `wale.africa` under Firebase Authentication → Settings → Authorized domains.
+2. Deploy `firestore.rules` to the WÁLÉ Firebase project's `(default)` database.
+3. Confirm Email/Password and Google providers remain enabled.
+4. Test registration, sign-in, sign-out and profile persistence on `https://wale.africa`.
+
+Firebase Hosting is intentionally **not** used. GitHub Pages remains the production host for `wale.africa`.
 
 ### First Return
 
@@ -51,7 +73,9 @@ The initial physical activation is being shaped around **Abeokuta, Nigeria**, th
 
 - Semantic HTML
 - CSS with responsive breakpoints and the WÁLÉ visual system
-- Vanilla JavaScript for lightweight interactions
+- Vanilla JavaScript
+- Firebase Authentication
+- Cloud Firestore
 - GitHub Pages deployment via GitHub Actions
 - No build step or framework dependency
 
